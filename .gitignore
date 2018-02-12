@@ -1,0 +1,5 @@
+#ENVIRONMENT VARIABLES
+/api/.env
+
+#PYTHON ENVIRONMENT
+/api/env

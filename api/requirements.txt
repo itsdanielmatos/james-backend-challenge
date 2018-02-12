@@ -1,0 +1,7 @@
+flask
+flask-api
+flask-sqlalchemy
+flask-migrate
+flask_script
+psycopg2
+psycopg2-binary
