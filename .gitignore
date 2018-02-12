@@ -3,3 +3,11 @@
 
 #PYTHON ENVIRONMENT
 /api/env
+
+#PYCHARM
+.idea/
+
+#PY CACHE
+api/__pycache__/
+api/app/__pycache__/
+api/instance/__pycache__/
