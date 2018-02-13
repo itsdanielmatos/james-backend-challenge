@@ -4,7 +4,7 @@ from flask import request, jsonify
 from instance.config import app_config
 from schemas.schemas import schemas
 from jsonschema import validate, ValidationError
-
+import ciso8601
 # Initialize SQL-ALCHEMY
 db = SQLAlchemy()
 
@@ -30,10 +30,16 @@ def create_app(config_name):
             response.status_code = 400
             return response
 
+        date = ciso8601.parse_datetime(request_data["date"])
+
+        if date is None:
+            response = jsonify({"error": "Specified date doesn't follow the ISO8601 norm"})
+            response.status_code = 400
+            return response
+
         amount = request_data["amount"]
         term = request_data["term"]
         rate = request_data["rate"]
-        date = request_data["date"]
 
         loan = Loan(amount=amount, term=term, rate=rate, date=date)
         loan.save()
