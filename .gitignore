@@ -11,3 +11,7 @@
 api/__pycache__/
 api/app/__pycache__/
 api/instance/__pycache__/
+api/schemas/__pycache__/
+
+#MIGRATIONS
+api/migrations/

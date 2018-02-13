@@ -5,3 +5,5 @@ flask-migrate
 flask_script
 psycopg2
 psycopg2-binary
+sqlalchemy-utils
+alembic
