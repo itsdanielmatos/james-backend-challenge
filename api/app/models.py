@@ -10,7 +10,7 @@ class Loan(db.Model):
     amount = db.Column(db.Integer(), nullable=False)
     term = db.Column(db.Integer(), nullable=False)
     rate = db.Column(db.Numeric(precision=3, scale=2), nullable=False)
-    date = db.Column(db.DateTime(), nullable=False)
+    date = db.Column(db.DateTime(timezone=True), nullable=False)
 
     def __init__(self, amount, term, rate, date):
         self.amount = amount
