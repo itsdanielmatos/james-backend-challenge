@@ -121,4 +121,4 @@ Get the volume of outstanding debt (i.e., debt yet to be paid) at some point in 
 ### Considerations
 - A loan can only be paid monthly, meaning that the payment date has to be superior by one month when compared with the last made payment date.
 - The number of made payments can't be greater than the loan term.
-- The payment amount has to be equal to the loan rate.
+- The payment amount has to be equal to the loan installment.
