@@ -83,7 +83,6 @@ class LoanTestCase(unittest.TestCase):
                                content_type='application/json')
         res = self.client().post('/loans/{}/payments'.format(loan["loan_id"]), data=json.dumps(correct_payment),
                                  content_type='application/json')
-        print(res.data)
         self.assertEqual(res.status_code, 409)
 
     def test_payment_twice(self):
