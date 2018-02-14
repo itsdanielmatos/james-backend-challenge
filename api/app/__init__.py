@@ -7,6 +7,7 @@ from jsonschema import validate, ValidationError
 from dateutil import relativedelta
 import uuid
 import datetime
+import pytz
 import ciso8601
 import re
 
@@ -81,7 +82,7 @@ def create_app(config_name):
             return generate_error_message("Specified date doesn't follow the ISO8601 norm", 400)
 
         if date.tzinfo is None or date.tzinfo.utcoffset(date) is None:
-            date = date.replace(tzinfo=datetime.timezone.utc)
+            date = date.replace(tzinfo=pytz.UTC)
 
         db_loan = Loan.get_loan(loan_id)
 
@@ -145,7 +146,7 @@ def create_app(config_name):
             return generate_error_message("Specified date doesn't follow the ISO8601 norm", 400)
 
         if transformed_date.tzinfo is None or transformed_date.tzinfo.utcoffset(transformed_date) is None:
-            transformed_date = transformed_date.replace(tzinfo=datetime.timezone.utc)
+            transformed_date = transformed_date.replace(tzinfo=pytz.UTC)
 
         db_loan = Loan.get_loan(loan_id)
 
