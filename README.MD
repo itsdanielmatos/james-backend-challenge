@@ -11,6 +11,49 @@ We want you to develop an application through which a big bank can easily issue 
 <b>Limitations:</b>
 - Loans are paid back in monthly installments.
 
+<b>Considerations:</b>
+- A loan can only be paid monthly, meaning that the payment date has to be superior by one month when compared with the last made payment date.
+- The number of made payments can't be greater than the loan term.
+- The payment amount has to be equal to the loan installment.
+
+## Setup
+
+In order to setup the docker container please follow the following steps:
+
+- Clone the repo
+```
+$ git clone git@github.com:itsdanielmatos/james-backend-challenge.git
+```
+
+- Change to the repository folder
+```
+$ cd james-backend-challenge/
+```
+- Run execute.sh
+```
+$ ./execute.sh
+```
+
+After the execution of the execute.sh script the api is available on the specified endpoints.
+
+## Testing
+
+In order to test the api follow the following steps (Note: setup step has to be fulfilled):
+
+- Get the docker container id
+```
+$ sudo docker ps -a
+```
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                            PORTS                    NAMES
+df611a242f0b        james_finance       "/bin/sh -c ./initia…"   About a minute ago   Up About a minute                 0.0.0.0:5000->5000/tcp   keen_varahamihira
+```
+
+- Run the tests
+```
+$ sudo docker exec -it df611a242f0b python test_james_finance.py
+```
+
 ## Endpoints
 
 ### POST /loans
@@ -117,8 +160,3 @@ Get the volume of outstanding debt (i.e., debt yet to be paid) at some point in 
 	"balance": 40
 }
 ```
-
-### Considerations
-- A loan can only be paid monthly, meaning that the payment date has to be superior by one month when compared with the last made payment date.
-- The number of made payments can't be greater than the loan term.
-- The payment amount has to be equal to the loan installment.
