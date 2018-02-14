@@ -12,6 +12,20 @@ def get_loan_schema():
     }
 
 
+def get_payment_schema():
+    return {
+        "type": "object",
+        "properties": {
+            "payment": {"type": "string", "enum": ["made", "missed"]},
+            "amount": {"type": "number"},
+            "date": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": False,
+        "required": ["payment", "amount", "date"]
+    }
+
+
 schemas = {
-    "loan": get_loan_schema()
+    "loan": get_loan_schema(),
+    "payment": get_payment_schema()
 }
